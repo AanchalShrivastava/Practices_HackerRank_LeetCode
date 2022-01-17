@@ -1,1 +1,28 @@
 
+Problem: https://www.hackerrank.com/challenges/asian-population/problem
+
+select sum(city.population) from city INNER JOIN Country ON City.CountryCode = Country.Code 
+AND Country.Continent='Asia';
+
+ Problem: https://www.hackerrank.com/challenges/african-cities/problem
+ 
+Select City.Name From City Inner Join Country 
+On city.CountryCode = country.Code
+Where Continent = 'Africa';
+
+Problem: https://www.hackerrank.com/challenges/average-population-of-each-continent/problem
+
+SELECT COUNTRY.CONTINENT, FLOOR(AVG(CITY.POPULATION))
+FROM CITY
+INNER JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE
+GROUP BY COUNTRY.CONTINENT;
+
+-- # Problem: https://www.hackerrank.com/challenges/the-report/problem
+
+SELECT
+    CASE WHEN G.Grade > 7 THEN S.Name ELSE 'NULL' END AS NameOrNull
+    , G.Grade
+    , S.Marks
+FROM Students S
+JOIN Grades G ON S.Marks BETWEEN G.Min_Mark AND G.Max_Mark
+ORDER BY G.Grade DESC, NameOrNull ASC, S.Marks ASC;
